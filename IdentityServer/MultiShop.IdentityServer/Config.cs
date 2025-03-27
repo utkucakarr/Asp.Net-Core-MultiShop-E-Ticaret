@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer4;
 using IdentityServer4.Models;
 using System.Collections.Generic;
@@ -75,7 +74,7 @@ namespace MultiShop.IdentityServer
                 //Şifremizi belirledik
                 ClientSecrets={new Secret("multishopsecret".Sha256())},
                 //Buradaka visitors kullanıcısına vericeğimiz yetkileri belirledik
-                AllowedScopes={ "DiscountFullPermission" }
+                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission" }
             },
 
             //Manager
@@ -85,7 +84,7 @@ namespace MultiShop.IdentityServer
                 ClientName="Multi Shop Manager User",
                 AllowedGrantTypes=GrantTypes.ResourceOwnerPassword,
                 ClientSecrets={new Secret("multishopsecret".Sha256())},
-                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission" }
+                AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "BasketFullPermission" }
             },
 
             //Admin
