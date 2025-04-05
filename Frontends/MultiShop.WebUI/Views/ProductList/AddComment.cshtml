@@ -13,6 +13,7 @@
     </div>
     @* Buradaka bu form AddComment'e gidecek neredeki ProductList'deki *@
     <form method="post" asp-action="AddComment" asp-controller="ProductList">
+        <input type="hidden" value="@ViewBag.pid" name="ProductId" />
         <div class="form-group">
             <label for="name">Adınız Soyadınız *</label>
             <input type="text" class="form-control" id="name" name="NameSurname">
