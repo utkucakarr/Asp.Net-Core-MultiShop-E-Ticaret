@@ -12,7 +12,7 @@
         }
       ],
       //Upstream tarafı client tarafından bize gelen istek tarafı.
-      "UpstreamPathTemplate": "/services/catalog{everything}",
+      "UpstreamPathTemplate": "/services/catalog/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -32,7 +32,7 @@
         }
       ],
       //Upstream tarafı client tarafından bize gelen istek tarafı.
-      "UpstreamPathTemplate": "/services/discount{everything}",
+      "UpstreamPathTemplate": "/services/discount/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -52,7 +52,7 @@
         }
       ],
       //Upstream tarafı client tarafından bize gelen istek tarafı.
-      "UpstreamPathTemplate": "/services/order{everything}",
+      "UpstreamPathTemplate": "/services/order/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -72,7 +72,7 @@
         }
       ],
       //Upstream tarafı client tarafından bize gelen istek tarafı.
-      "UpstreamPathTemplate": "/services/cargo{everything}",
+      "UpstreamPathTemplate": "/services/cargo/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -92,7 +92,7 @@
         }
       ],
       //Upstream tarafı client tarafından bize gelen istek tarafı.
-      "UpstreamPathTemplate": "/services/basket{everything}",
+      "UpstreamPathTemplate": "/services/basket/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -112,7 +112,7 @@
         }
       ],
       //Upstream tarafı client tarafından bize gelen istek tarafı.
-      "UpstreamPathTemplate": "/services/comment{everything}",
+      "UpstreamPathTemplate": "/services/comment/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
@@ -132,12 +132,12 @@
         }
       ],
       //Upstream tarafı client tarafından bize gelen istek tarafı.
-      "UpstreamPathTemplate": "/services/payment{everything}",
+      "UpstreamPathTemplate": "/services/payment/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "OcelotAuthenticationSheme",
-        "AllowedScopes": [ "PaymentFullPermission" ]
+        "AllowedScopes": [ "CommentFullPermission" ]
       }
     },
     //Images Mikroservisi
@@ -152,12 +152,12 @@
         }
       ],
       //Upstream tarafı client tarafından bize gelen istek tarafı.
-      "UpstreamPathTemplate": "/services/images{everything}",
+      "UpstreamPathTemplate": "/services/images/{everything}",
       "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
       "UpstreamScheme": "http",
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "OcelotAuthenticationSheme",
-        "AllowedScopes": [ "ImagesFullPermission" ]
+        "AllowedScopes": [ "ImageFullPermission" ]
       }
     }
   ],

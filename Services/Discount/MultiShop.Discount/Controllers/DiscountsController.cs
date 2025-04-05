@@ -10,11 +10,11 @@ namespace MultiShop.Discount.Controllers
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class DiscountController : ControllerBase
+    public class DiscountsController : ControllerBase
     {
         private readonly IDiscountService _discountService;
 
-        public DiscountController(IDiscountService discountService)
+        public DiscountsController(IDiscountService discountService)
         {
             _discountService = discountService;
         }
