@@ -1,7 +1,7 @@
-﻿@model List<ResultUserDto>
+﻿@model List<ResultCargoCompanyDto>
 
 @{
-    ViewData["Title"] = "UserList";
+    ViewData["Title"] = "CargoCompanyList";
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
@@ -15,10 +15,9 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Ad Soyad</th>
-                                <th>Kullanıcı Adı</th>
-                                <th>Email</th>
-                                <th>Adres Detayı</th>
+                                <th>Kargo Adı</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,15 +26,15 @@
                                 count++;
                                 <tr>
                                     <th scope="row">@count</th>
-                                    <td>@item.name @item.surname</td>
-                                    <td>@item.userName</td>
-                                    <td>@item.email</td>
-                                    <td><a href="/Admin/User/UserAddressInfo/@item.id" class="btn btn-warning">Adres Detayı</a></td>
+                                    <td>@item.CargoCompanyName</td>
+                                    <td><a href="/Admin/Cargo/DeleteCargoCompany/@item.CargoCompanyId" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Admin/Cargo/UpdateCargoCompany/@item.CargoCompanyId" class="btn btn-success">Güncelle</a></td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                     <br />
+                    <a href="/Admin/Cargo/CreateCargoCompany/" class="btn btn-primary">Yeni Cargo Firma Girişi</a>
                 </div>
             </div>
         </div>
