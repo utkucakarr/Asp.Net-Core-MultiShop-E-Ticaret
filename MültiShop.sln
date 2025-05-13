@@ -40,6 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirement
 		LoginIndex.txt = LoginIndex.txt
 		OcelotCodeExample.txt = OcelotCodeExample.txt
 		OcelotLink.txt = OcelotLink.txt
+		Orderhtml.txt = Orderhtml.txt
 		PortainerCmd.txt = PortainerCmd.txt
 		PortNumbers.txt = PortNumbers.txt
 		SimpleCode.txt = SimpleCode.txt
@@ -85,6 +86,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{4D3DFFCF-60D6-407A-9582-801968944571}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Images", "Services\Images\MultiShop.Images\MultiShop.Images.csproj", "{7BFAAB01-4F41-4D33-91E4-D56869BC05CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message", "Message", "{F3D87D87-36C3-4283-9A9E-BCC55F1EC2CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Message", "Services\Message\MultiShop.Message\MultiShop.Message.csproj", "{03DDCD0C-A929-4B28-AF18-3B47BE989AF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -168,6 +173,10 @@ Global
 		{7BFAAB01-4F41-4D33-91E4-D56869BC05CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BFAAB01-4F41-4D33-91E4-D56869BC05CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BFAAB01-4F41-4D33-91E4-D56869BC05CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03DDCD0C-A929-4B28-AF18-3B47BE989AF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03DDCD0C-A929-4B28-AF18-3B47BE989AF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03DDCD0C-A929-4B28-AF18-3B47BE989AF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03DDCD0C-A929-4B28-AF18-3B47BE989AF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -203,6 +212,8 @@ Global
 		{268F9FBD-A5AD-4385-819D-1074783A3FBC} = {3C89FA88-6C19-40D1-A2E3-C7F379592C59}
 		{4D3DFFCF-60D6-407A-9582-801968944571} = {9F615E01-5DD2-4C01-AC70-B521D88F0064}
 		{7BFAAB01-4F41-4D33-91E4-D56869BC05CB} = {4D3DFFCF-60D6-407A-9582-801968944571}
+		{F3D87D87-36C3-4283-9A9E-BCC55F1EC2CF} = {9F615E01-5DD2-4C01-AC70-B521D88F0064}
+		{03DDCD0C-A929-4B28-AF18-3B47BE989AF5} = {F3D87D87-36C3-4283-9A9E-BCC55F1EC2CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0CF8851-CB0E-48FF-9857-72A15AFC0ECC}

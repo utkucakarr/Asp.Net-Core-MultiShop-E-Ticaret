@@ -10,7 +10,7 @@ namespace MultiShop.Order.Application.Features.Mediator.Commands.OrderingCommand
     public class CreateOrderingCommand : IRequest
     {
 
-        public int UserId { get; set; }
+        public string UserId { get; set; }
 
         public decimal TotalPrice { get; set; }
 
