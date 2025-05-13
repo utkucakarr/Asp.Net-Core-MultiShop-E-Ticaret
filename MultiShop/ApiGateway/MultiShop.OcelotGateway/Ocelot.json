@@ -159,6 +159,26 @@
         "AuthenticationProviderKey": "OcelotAuthenticationSheme",
         "AllowedScopes": [ "ImageFullPermission" ]
       }
+    },
+    //Message Mikroservisi
+    {
+      //Downstream tarafı ise bu gelen isteği ocelet tarafında nasıl karşılıcaz ve geri göndericez.
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7078
+        }
+      ],
+      //Upstream tarafı client tarafından bize gelen istek tarafı.
+      "UpstreamPathTemplate": "/services/message/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ],
+      "UpstreamScheme": "http",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotAuthenticationSheme",
+        "AllowedScopes": [ "MessageFullPermission" ]
+      }
     }
   ],
   "GlobalConfiguration": {
