@@ -50,7 +50,7 @@ namespace MultiShop.Discount.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteDiscountCoupon(int id)
         {
-            await _discountService.DeleteDiscountCouponAsync(id); 
+            await _discountService.DeleteDiscountCouponAsync(id);
             return Ok("Kupon başarıyla silindi");
         }
 
@@ -65,6 +65,13 @@ namespace MultiShop.Discount.Controllers
         public IActionResult GetDiscountCouponCountRate(string code)
         {
             var values = _discountService.GetDiscountCouponCountRate(code);
+            return Ok(values);
+        }
+
+        [HttpGet("GetDiscountCouponCount")]
+        public async Task<IActionResult> GetDiscountCouponCount()
+        {
+            var values = await _discountService.GetDiscountCouponCountAsync();
             return Ok(values);
         }
     }
