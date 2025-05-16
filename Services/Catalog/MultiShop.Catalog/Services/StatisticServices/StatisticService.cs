@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MultiShop.Catalog.Entities;

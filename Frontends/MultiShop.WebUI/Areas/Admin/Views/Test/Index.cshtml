@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+
+
+    <div class="content">
+        <br /><br />
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <script type="text/javascript">
+                        $(document).ready(() => {
+                                var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7106/SignalRHub").build();
+                                $("#connstatus").text(connection.state);
+
+                                connection.start().then(() => {
+                                    $("#connstatus").text(connection.state);
+                                }).catch((err) => { console.log(err) });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+
+<div class="col-md-8 offset-2">
+    <div class="alert alert-primary">Bağlantının Durumu : <strong id="connstatus">
+    </strong></div>
+</div>
+

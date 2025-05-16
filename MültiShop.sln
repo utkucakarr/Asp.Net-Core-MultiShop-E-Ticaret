@@ -92,6 +92,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message", "Message", "{527C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Message", "Services\Message\MultiShop.Message\MultiShop.Message.csproj", "{D8F4D3E4-9279-42C0-89B2-EFD5A7E3D23D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalRRealTime", "SignalRRealTime", "{DF3818D2-67FA-423D-ABED-4EE57B10B4C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.SignalRRealTimeApi", "Services\SignalRRealTime\MultiShop.SignalRRealTimeApi\MultiShop.SignalRRealTimeApi.csproj", "{A3952C2B-FAF8-49A4-B651-E4E144E80B52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -178,6 +182,10 @@ Global
 		{D8F4D3E4-9279-42C0-89B2-EFD5A7E3D23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8F4D3E4-9279-42C0-89B2-EFD5A7E3D23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8F4D3E4-9279-42C0-89B2-EFD5A7E3D23D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3952C2B-FAF8-49A4-B651-E4E144E80B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3952C2B-FAF8-49A4-B651-E4E144E80B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3952C2B-FAF8-49A4-B651-E4E144E80B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3952C2B-FAF8-49A4-B651-E4E144E80B52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -215,6 +223,8 @@ Global
 		{7BFAAB01-4F41-4D33-91E4-D56869BC05CB} = {4D3DFFCF-60D6-407A-9582-801968944571}
 		{527C19D1-C902-4E26-AC3F-57AC6B92F832} = {9F615E01-5DD2-4C01-AC70-B521D88F0064}
 		{D8F4D3E4-9279-42C0-89B2-EFD5A7E3D23D} = {527C19D1-C902-4E26-AC3F-57AC6B92F832}
+		{DF3818D2-67FA-423D-ABED-4EE57B10B4C3} = {9F615E01-5DD2-4C01-AC70-B521D88F0064}
+		{A3952C2B-FAF8-49A4-B651-E4E144E80B52} = {DF3818D2-67FA-423D-ABED-4EE57B10B4C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A0CF8851-CB0E-48FF-9857-72A15AFC0ECC}

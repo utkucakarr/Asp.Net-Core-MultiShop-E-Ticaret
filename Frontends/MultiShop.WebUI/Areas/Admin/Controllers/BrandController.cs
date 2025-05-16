@@ -36,16 +36,16 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             return View(values);
         }
 
-        [Route("CreateBrand")]
         [HttpGet]
+        [Route("CreateBrand")]
         public IActionResult CreateBrand()
         {
             BrandViewBagList();
             return View();
         }
 
-        [Route("CreateBrand")]
         [HttpPost]
+        [Route("CreateBrand")]
         public async Task<IActionResult> CreateBrand(CreateBrandDto createBrandDto)
         {
             await _brandService.CreateBrandAsync(createBrandDto);

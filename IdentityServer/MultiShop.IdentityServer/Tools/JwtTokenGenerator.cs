@@ -27,7 +27,7 @@ namespace MultiShop.IdentityServer.Tools
             var expireDate = DateTime.UtcNow.AddDays(JwtTokenDefault.Expire);
 
             JwtSecurityToken token = new JwtSecurityToken
-                (issuer: JwtTokenDefault.ValidIssuer, audience: JwtTokenDefault.ValidAudience, claims, notBefore: DateTime.UtcNow, expires: expireDate, signingCredentials: signingCredentials);
+                (issuer: JwtTokenDefault.ValidIssuer, audience: JwtTokenDefault.ValidAudience, claims: claims, notBefore: DateTime.UtcNow, expires: expireDate, signingCredentials: signingCredentials);
 
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
 

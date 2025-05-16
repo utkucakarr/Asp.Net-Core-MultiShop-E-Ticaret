@@ -19,10 +19,11 @@
         </div>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                @* Mesajlar *@
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-envelope"></i>
-                        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        <div class="notify"> <span class=" badge">@ViewBag.messageCount</span> <span class="point"></span> </div>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">You have 4 messages</li>
@@ -65,13 +66,14 @@
                         <li class="footer"><a href="#">Check all notifications</a></li>
                     </ul>
                 </li>
+                @* Bildirimler *@
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="icon-megaphone"></i>
-                        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        <div class="notify"> <span class="badge">@ViewBag.commentCount</span> <span class="point"></span> </div>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">Notifications</li>
+                        <li class="header">Son Yorumlar</li>
                         <li>
                             <ul class="menu">
                                 <li><a href="#"><i class="icon-lightbulb"></i> Lorem ipsum dolor sit amet </a> </li>

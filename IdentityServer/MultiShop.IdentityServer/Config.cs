@@ -4,7 +4,6 @@
 using IdentityServer4;
 using IdentityServer4.Models;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 // bu Config sayfasında yetkilendirme işlemleri yapılıyor.
 namespace MultiShop.IdentityServer
@@ -102,7 +101,7 @@ namespace MultiShop.IdentityServer
                 AllowedScopes={ "CatalogReadPermission", "CatalogFullPermission", "OcelotFullPermission", "CommentFullPermission", "ImageFullPermission",
                 IdentityServerConstants.LocalApi.ScopeName
                 },
-                AllowAccessTokensViaBrowser=true,
+                AllowAccessTokensViaBrowser=true
             },
 
             //Manager

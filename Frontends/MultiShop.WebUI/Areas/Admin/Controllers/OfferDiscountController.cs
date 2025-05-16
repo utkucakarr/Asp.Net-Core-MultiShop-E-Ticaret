@@ -9,6 +9,7 @@ using System.Text;
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [AllowAnonymous]
     [Route("Admin/OfferDiscount")]
     public class OfferDiscountController : Controller
     {

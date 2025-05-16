@@ -2,6 +2,7 @@
 using MultiShop.DtoLayer.CatalogDtos.CategoryDtos;
 using MultiShop.WebUI.Services.CatalogServices.CategoryServices;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Net.Http.Headers;
 using System.Net.WebSockets;
 using System.Text.Json.Nodes;
@@ -40,7 +41,7 @@ namespace MultiShop.WebUI.Controllers
                     if (response.IsSuccessStatusCode)
                     {
                         var content = await response.Content.ReadAsStringAsync();
-                        var tokenResponse = JsonObject.Parse(content);
+                        var tokenResponse = JObject.Parse(content);
                         token = tokenResponse["access_token"].ToString();
                     }
                 }
