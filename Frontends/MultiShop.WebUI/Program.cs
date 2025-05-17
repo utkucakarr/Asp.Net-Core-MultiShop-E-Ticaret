@@ -37,7 +37,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     {
         //Sisteme giriþ yapmadan yönlenen biri olursa yönlendirilecek sayfa belirleniyor.
         opt.LoginPath = "/Login/Index/";
-        opt.LogoutPath = "/Login/LogOut/";
+        opt.LogoutPath = "/Login/Logout/";
         //Kullanýcý yetkisi olmayan bir sayfaya gitmeye çalýþtýðýnda yönlendirilecek sayfa
         opt.AccessDeniedPath = "/Pages/AccessDenied/";
         opt.Cookie.HttpOnly = true;

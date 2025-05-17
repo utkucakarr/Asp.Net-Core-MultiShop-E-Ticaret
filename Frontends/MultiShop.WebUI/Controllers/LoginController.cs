@@ -29,10 +29,11 @@ namespace MultiShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(SignInDto signInDto)
+        public async Task<IActionResult> Index(SignInDto signInDto, string returnUrl)
         {
             await _identityService.SignIn(signInDto);
-            return RedirectToAction("Index", "User");
+            return Redirect(returnUrl);
+            //return RedirectToAction("Index", "Default");
         }
 
         public async Task<IActionResult> Logout()

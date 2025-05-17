@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.BasketDtos;
 using MultiShop.WebUI.Services.BasketServices;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices;
@@ -6,6 +7,7 @@ using MultiShop.WebUI.Services.Interfaces;
 
 namespace MultiShop.WebUI.Controllers
 {
+    [Authorize]
     public class ShoppingCardController : Controller
     {
         private readonly IProductService _productService;
@@ -21,10 +23,10 @@ namespace MultiShop.WebUI.Controllers
 
         public async Task<IActionResult> Index(string code, int discountRate, decimal totalNewPriceWithDiscount)
         {
-            if (!_identityService.IsAuthenticated())
-            {
-                return RedirectToAction("Index", "Login");
-            }
+            //if (!_identityService.IsAuthenticated())
+            //{
+            //    return RedirectToAction("Index", "Login");
+            //}
             ViewBag.code = code;
             ViewBag.discountRate = discountRate;
             ViewBag.totalNewPriceWithDiscount = totalNewPriceWithDiscount;
