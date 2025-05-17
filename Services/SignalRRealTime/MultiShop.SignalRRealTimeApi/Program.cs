@@ -1,4 +1,6 @@
 using MultiShop.SignalRRealTimeApi.Hubs;
+using MultiShop.SignalRRealTimeApi.Services.SignalRCommentServices;
+using MultiShop.SignalRRealTimeApi.Services.SignalRMessageServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,11 @@ builder.Services.AddCors(opt =>
                .AllowCredentials(); //Kimlik bilgilerini (çerezler, oturum bilgilerinin) içeren isteklere izin verir.
     });
 });
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddScoped<ISignalRMessageService, SignalRMessageService>();
+builder.Services.AddScoped<ISignalRCommentServices, SignalRCommentServices>();
 
 builder.Services.AddSignalR();
 
