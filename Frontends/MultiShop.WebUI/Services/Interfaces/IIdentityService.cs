@@ -6,6 +6,10 @@ namespace MultiShop.WebUI.Services.Interfaces
     {
         Task<bool> SignIn(SignInDto signInDto);
 
+        Task<bool> Logout();
+
+        bool IsAuthenticated();
+
         Task<bool> GetRefreshToken();
     }
 }

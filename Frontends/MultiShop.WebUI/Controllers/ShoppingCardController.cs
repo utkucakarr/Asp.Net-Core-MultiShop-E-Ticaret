@@ -2,6 +2,7 @@
 using MultiShop.DtoLayer.BasketDtos;
 using MultiShop.WebUI.Services.BasketServices;
 using MultiShop.WebUI.Services.CatalogServices.ProductServices;
+using MultiShop.WebUI.Services.Interfaces;
 
 namespace MultiShop.WebUI.Controllers
 {
@@ -9,15 +10,21 @@ namespace MultiShop.WebUI.Controllers
     {
         private readonly IProductService _productService;
         private readonly IBasketService _basketService;
+        private readonly IIdentityService _identityService;
 
-        public ShoppingCardController(IProductService productService, IBasketService basketService)
+        public ShoppingCardController(IProductService productService, IBasketService basketService, IIdentityService identityService)
         {
             _productService = productService;
             _basketService = basketService;
+            _identityService = identityService;
         }
 
         public async Task<IActionResult> Index(string code, int discountRate, decimal totalNewPriceWithDiscount)
         {
+            if (!_identityService.IsAuthenticated())
+            {
+                return RedirectToAction("Index", "Login");
+            }
             ViewBag.code = code;
             ViewBag.discountRate = discountRate;
             ViewBag.totalNewPriceWithDiscount = totalNewPriceWithDiscount;

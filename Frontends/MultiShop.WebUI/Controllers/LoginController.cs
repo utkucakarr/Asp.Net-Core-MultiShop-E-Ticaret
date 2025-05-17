@@ -34,5 +34,11 @@ namespace MultiShop.WebUI.Controllers
             await _identityService.SignIn(signInDto);
             return RedirectToAction("Index", "User");
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _identityService.Logout();
+            return RedirectToAction("Index", "Default");
+        }
     }
 }

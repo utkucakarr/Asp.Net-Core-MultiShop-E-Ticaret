@@ -145,5 +145,16 @@ namespace MultiShop.WebUI.Services.Concrete
 
             return true;
         }
+
+        public async Task<bool> Logout()
+        {
+            await _httpContextAccessor.HttpContext.SignOutAsync();
+            return true;
+        }
+
+        public bool IsAuthenticated()
+        {
+            return _httpContextAccessor.HttpContext.User.Identity.IsAuthenticated;
+        }
     }
 }

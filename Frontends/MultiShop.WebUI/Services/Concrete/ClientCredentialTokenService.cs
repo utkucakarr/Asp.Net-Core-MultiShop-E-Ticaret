@@ -22,7 +22,7 @@ namespace MultiShop.WebUI.Services.Concrete
         }
 
         public async Task<string> GetToken()
-        {
+       {
             var token1 = await _clientAccessTokenCache.GetAsync("multishoptoken");
             if (token1 != null)
             {
