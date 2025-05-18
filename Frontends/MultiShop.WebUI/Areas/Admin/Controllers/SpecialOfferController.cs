@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Duende.IdentityServer.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using MultiShop.DtoLayer.CatalogDtos.SpecialOfferDtos;
 using MultiShop.WebUI.Services.CatalogServices.SpecialOfferServices;
 using Newtonsoft.Json;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MultiShop.WebUI.Areas.Admin.Controllers
 {
@@ -36,8 +38,15 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         [Route("CreateSpecialOffer")]
         [HttpGet]
-        public IActionResult CreateSpecialOffer()
+        public async Task<IActionResult> CreateSpecialOffer()
         {
+            var offer = await _specialOfferService.GetAllSpecialOfferAsync();
+            var offerCount = offer.Count();
+            ViewBag.offerCount = offerCount;
+            if (offerCount >= 2)
+            {
+                TempData["errorMessage"] = "En fazla 2 özel teklif eklenebilir.";
+            }
             SpecialOfferViewBagList();
             return View();
         }
@@ -46,8 +55,19 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateSpecialOffer(CreateSpecialOfferDto createSpecialOfferDto)
         {
-            await _specialOfferService.CreateSpecialOfferAsync(createSpecialOfferDto);
-            return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
+            var offer = await _specialOfferService.GetAllSpecialOfferAsync();
+            var offerCount = offer.Count();
+            ViewBag.offerCount = offerCount;
+            if (offerCount >= 2)
+            {
+                TempData["errorMessage"] = "En fazla 2 özel teklif eklenebilir.";
+                return View(createSpecialOfferDto);
+            }
+            else
+            {
+                await _specialOfferService.CreateSpecialOfferAsync(createSpecialOfferDto);
+                return RedirectToAction("Index", "SpecialOffer", new { area = "Admin" });
+            }
         }
 
         [Route("DeleteSpecialOffer/{id}")]

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Duende.IdentityServer.Extensions;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.IdentityDtos.LoginDtos;
@@ -32,8 +33,11 @@ namespace MultiShop.WebUI.Controllers
         public async Task<IActionResult> Index(SignInDto signInDto, string returnUrl)
         {
             await _identityService.SignIn(signInDto);
+            if (returnUrl == null)
+            {
+                return RedirectToAction("Index", "Default");
+            }
             return Redirect(returnUrl);
-            //return RedirectToAction("Index", "Default");
         }
 
         public async Task<IActionResult> Logout()

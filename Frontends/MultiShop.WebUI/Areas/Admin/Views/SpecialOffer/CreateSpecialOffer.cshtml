@@ -12,6 +12,12 @@
                 <br />
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post">
+                        @if (ViewBag.offerCount >= 2)
+                        {
+                            <div class="alert alert-warning">
+                                @TempData["errorMessage"]
+                            </div>
+                        }
                         <label>Teklif Başlığı</label>
                         <input type="text" class="form-control" asp-for="Title" />
                         <br />
@@ -21,7 +27,9 @@
                         <label>Teklif Görseli</label>
                         <input type="text" class="form-control" asp-for="ImageUrl" />
                         <br />
-                        <button class="btn btn-primary">Özel Teklif Ekle</button>
+                        <button class="btn btn-primary" @(ViewBag.OfferCount >= 2 ? "disabled" : "")>
+                            Özel Teklif Ekle
+                        </button>
                     </form>
                 </div>
             </div>
