@@ -42,15 +42,15 @@ Bu proje, mikro hizmetler mimarisi kullanılarak geliştirilmiştir ve **ASP.NET
 - Repository Design Pattern
 
 ## Mikroservisler
-•	Basket - Docker Redis
-•	Cargo - Docker MsSql
-•	Catalog - MongoDb
-•	Comment - Docker MsSql
-•	Discount - Local MsSql Dapper ORM
-•	Images - Local MsSql
-•	Message - PostgreSql
-•	IdentityServer4 -Docker MsSql
-•	RabbitMq
-•	SignalR
-•	RapidApi
+-	Basket - Docker Redis
+-	Cargo - Docker MsSql
+-	Catalog - MongoDb
+-	Comment - Docker MsSql
+-	Discount - Local MsSql Dapper ORM
+-	Images - Local MsSql
+-	Message - PostgreSql
+-	IdentityServer4 -Docker MsSql
+-	RabbitMq
+-	SignalR
+-	RapidApi
 
