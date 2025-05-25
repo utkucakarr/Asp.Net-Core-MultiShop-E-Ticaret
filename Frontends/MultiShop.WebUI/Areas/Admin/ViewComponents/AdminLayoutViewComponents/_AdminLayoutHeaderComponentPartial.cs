@@ -26,6 +26,8 @@ namespace MultiShop.WebUI.Areas.Admin.ViewComponents.AdminLayoutViewComponents
             ViewBag.messageCount = messageCount;
             int commentCount = await _commentStatisticService.GetTotalCommentCountAsync();
             ViewBag.commentCount = commentCount;
+            ViewBag.userName = user.UserName + " " + user.Surname;
+            ViewBag.userMail = user.Email;
             return View();
         }
     }

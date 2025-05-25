@@ -57,10 +57,29 @@ namespace MultiShop.WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> RemoveBasketItem(string id)
+
+        [Route("shoppingCard/removeAll/{productId}")]
+        public async Task<IActionResult> RemoveAllBasketItem(string productId)
         {
-            await _basketService.RemoveBasketItem(id);
-            return RedirectToAction("Index");
+            await _basketService.RemoveAllBasketItem(productId);
+            return RedirectToAction(nameof(Index));
         }
+
+        [Route("shoppingCard/remove/{productId}")]
+        public async Task<IActionResult> RemoveBasketItem(string productId)
+        {
+            await _basketService.RemoveBasketItem(productId);
+            return RedirectToAction(nameof(Index));
+        }
+
+
+        [Route("shoppingCard/add/{productId}")]
+        public async Task<IActionResult> AddBasketBtnItem(BasketItemDto basketItemDto)
+        {
+            await _basketService.AddBasketBtnItem(basketItemDto);
+            return RedirectToAction(nameof(Index));
+        }
+
+
     }
 }

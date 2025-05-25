@@ -12,6 +12,10 @@ namespace MultiShop.WebUI.Services.BasketServices
 
         Task AddBasketItem(BasketItemDto basketItemDto);
 
-        Task<bool> RemoveBasketItem(string productId);
+        Task<bool> RemoveAllBasketItem(string productId);
+
+        Task RemoveBasketItem(string productId);
+
+        Task AddBasketBtnItem(BasketItemDto basketItemDto);
     }
 }

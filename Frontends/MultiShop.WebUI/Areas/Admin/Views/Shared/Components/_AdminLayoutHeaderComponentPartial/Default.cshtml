@@ -22,8 +22,7 @@
                 @* Mesajlar *@
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-envelope"></i>
-                        <div class="notify"> <span class=" badge">@ViewBag.messageCount</span> <span class="point"></span> </div>
+                        <i class="icon-envelope"><span class="badge" style="position:relative;top:-10px"><strong>@ViewBag.messageCount</strong></span></i>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">You have 4 messages</li>
@@ -69,8 +68,7 @@
                 @* Bildirimler *@
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-megaphone"></i>
-                        <div class="notify"> <span class="badge">@ViewBag.commentCount</span> <span class="point"></span> </div>
+                        <i class="fa fa-comment"><span class="badge" style="position:relative;top:-10px"><strong>@ViewBag.commentCount</strong></span></i>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">Son Yorumlar</li>
@@ -86,20 +84,20 @@
                     </ul>
                 </li>
                 <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="~/online-shop-website-template/images/logos/manlogo.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">Admin 01</span> </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img src="~/online-shop-website-template/images/logos/manlogo.jpg" class="user-image" alt="User Image"> <span class="hidden-xs">@ViewBag.userName</span> </a>
                     <ul class="dropdown-menu">
                         <li class="user-header">
                             <div class="pull-left user-img"><img src="~/online-shop-website-template/images/logos/manlogo.jpg" class="img-responsive" alt="User"></div>
-                            <p class="text-left">Ahmet Ünlü <small>multishop@gmail.com</small> </p>
-                            <div class="view-link text-left"><a href="#">View Profile</a> </div>
+                            <p class="text-left">@ViewBag.userName <small>@ViewBag.userMail</small> </p>
+                            <div class="view-link text-left"><a href="#">Profili İncele</a> </div>
                         </li>
-                        <li><a href="#"><i class="icon-profile-male"></i> My Profile</a></li>
-                        <li><a href="#"><i class="icon-wallet"></i> My Balance</a></li>
-                        <li><a href="#"><i class="icon-envelope"></i> Inbox</a></li>
+                        <li><a href="#"><i class="icon-profile-male"></i> Profilim</a></li>
+                        <li><a href="#"><i class="icon-wallet"></i> Bakiyem</a></li>
+                        <li><a href="#"><i class="icon-envelope"></i> Gelen Kutusu</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#"><i class="icon-gears"></i> Account Setting</a></li>
+                        <li><a href="#"><i class="icon-gears"></i> Hesap Ayarları</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                        <li><a href="/Login/Logout"><i class="fa fa-power-off"></i> Çıkış Yap</a></li>
                     </ul>
                 </li>
             </ul>

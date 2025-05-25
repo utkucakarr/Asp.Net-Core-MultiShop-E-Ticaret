@@ -11,12 +11,36 @@ namespace MultiShop.WebUI.Services.BasketServices
             _httpClient = httpClient;
         }
 
+        public async Task AddBasketBtnItem(BasketItemDto basketItemDto)
+        {
+            var currentBasket = await GetBasket();
+            if (currentBasket is null)
+            {
+                currentBasket = new BasketTotalDto();
+                currentBasket.BasketItems.Add(basketItemDto);
+            }
+            else
+            {
+                var searchedBasketItem = currentBasket.BasketItems.FirstOrDefault(x => x.ProductId == basketItemDto.ProductId);
+                if (searchedBasketItem is not null)
+                {
+                    searchedBasketItem.Quantity += 1;
+                }
+                else
+                {
+                    currentBasket.BasketItems.Add(basketItemDto);
+                }
+            }
+
+            await SaveBasket(currentBasket);
+        }
+
         public async Task AddBasketItem(BasketItemDto basketItemDto)
         {
             var values = await GetBasket();
-            if(values != null)
+            if (values != null)
             {
-                if(!values.BasketItems.Any(x=>x.ProductId == basketItemDto.ProductId))
+                if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId))
                 {
                     values.BasketItems.Add(basketItemDto);
                 }
@@ -41,13 +65,22 @@ namespace MultiShop.WebUI.Services.BasketServices
             return values;
         }
 
-        public async Task<bool> RemoveBasketItem(string productId)
+        public async Task<bool> RemoveAllBasketItem(string productId)
         {
             var values = await GetBasket();
             var deletedItem = values.BasketItems.FirstOrDefault(x=>x.ProductId == productId);
             var result = values.BasketItems.Remove(deletedItem);
             await SaveBasket(values);
             return true;
+        }
+
+        public async Task RemoveBasketItem (string productId)
+        {
+            var currentBasket = await GetBasket();
+            var deletedItem = currentBasket.BasketItems.FirstOrDefault(x => x.ProductId == productId);
+            deletedItem.Quantity--;
+
+            await SaveBasket(currentBasket);
         }
 
         public async Task SaveBasket(BasketTotalDto basketTotalDto)
