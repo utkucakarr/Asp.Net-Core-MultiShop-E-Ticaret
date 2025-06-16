@@ -23,6 +23,7 @@ using MultiShop.WebUI.Services.Interfaces;
 using MultiShop.WebUI.Services.MessageServices;
 using MultiShop.WebUI.Services.OrderServices.OrderAddressServices;
 using MultiShop.WebUI.Services.OrderServices.OrderOrderingServices;
+using MultiShop.WebUI.Services.OrderServices.OrderDetailServices;
 using MultiShop.WebUI.Services.StatisticServices.CatalogStatisticServices;
 using MultiShop.WebUI.Services.StatisticServices.CommentStatisticServices;
 using MultiShop.WebUI.Services.StatisticServices.DiscountStatisticServices;
@@ -30,6 +31,7 @@ using MultiShop.WebUI.Services.StatisticServices.MessageStatisticServices;
 using MultiShop.WebUI.Services.StatisticServices.UserStatisticServices;
 using MultiShop.WebUI.Services.UserIdentityServices;
 using MultiShop.WebUI.Settings;
+using MultiShop.WebUI.Services.PaymentServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,6 +65,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 
 builder.Services.AddHttpClient();
@@ -134,6 +137,11 @@ builder.Services.AddHttpClient<ICargoCustomerService, CargoCustomerService>(opt 
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 builder.Services.AddHttpClient<IOrderAddressService, OrderAddressService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Order.Path}");
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
+builder.Services.AddHttpClient<IOrderDetailService, OrderDetailService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Order.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();

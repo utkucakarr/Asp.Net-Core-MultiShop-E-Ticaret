@@ -37,15 +37,15 @@ namespace MultiShop.Order.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrdering(CreateOrderingCommand command)
         {
-            await _mediator.Send(command);
-            return Ok("Sipariş başarıyla eklendi");
+            var orderingId = await _mediator.Send(command);
+            return Ok(orderingId);
         }
 
         [HttpDelete]
         public async Task<IActionResult> RemoveOrdering(int id)
         {
             await _mediator.Send(new RemoveOrderingCommand(id));
-            return Ok("Sipariş başarıyla eklendi");
+            return Ok("Sipariş başarıyla silindi");
         }
 
         [HttpPut]

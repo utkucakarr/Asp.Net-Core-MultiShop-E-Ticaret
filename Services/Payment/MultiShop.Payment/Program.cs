@@ -1,4 +1,13 @@
+using MultiShop.Payment.Context;
+using MultiShop.Payment.Repositories;
+using MultiShop.Payment.Services.PaymentServices;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<PaymentContext>();
+
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 // Add services to the container.
 

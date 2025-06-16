@@ -15,6 +15,13 @@
 
 </head>
 <body>
+    @if(!String.IsNullOrEmpty(ViewBag.errorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.errorMessage
+        </div>
+    }
+
     <div class="container">
         <div class="card-container">
             <div class="front">
@@ -46,19 +53,19 @@
                 </div>
             </div>
         </div>
-        <form action="">
+        <form asp-controller="Payment" asp-action="Payment" method="post">
             <div class="inputBox">
                 <span>Kart Numarası</span>
-                <input type="text" id="credit-card" maxlength="19" class="card-number-input">
+                <input name="CardNumber" type="text" id="CardNumber" maxlength="19" class="card-number-input">
             </div>
             <div class="inputBox">
                 <span>Kart Sahibi</span>
-                <input type="text" class="card-holder-input">
+                <input name="CardOwnerName" id="CardOwnerName" type="text" class="card-holder-input">
             </div>
             <div class="flexbox">
                 <div class="inputBox">
                     <span>Ay Bilgisi</span>
-                    <select name="" id="" class="month-input">
+                    <select name="Month" id="Month" class="month-input">
                         <option value="month" selected disabled>Ay Seçiniz</option>
                         <option value="01">01</option>
                         <option value="02">02</option>
@@ -76,7 +83,7 @@
                 </div>
                 <div class="inputBox">
                     <span>Yıl Bilgisi</span>
-                    <select name="" id="" class="year-input">
+                    <select name="Year" id="Year" class="year-input">
                         <option value="year" selected disabled>Yıl Seçiniz</option>
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>
@@ -92,7 +99,7 @@
                 </div>
                 <div class="inputBox">
                     <span>Cvv</span>
-                    <input type="text" maxlength="4" class="cvv-input">
+                    <input name="Cvv" id="Cvv" type="text" maxlength="4" class="cvv-input">
                 </div>
             </div>
             <input type="submit" value="Ödemeyi Tamamla" class="submit-btn">
@@ -100,18 +107,11 @@
     </div>
 
     <script>
-        const creditCardInput = document.getElementById('credit-card');
+        const creditCardInput = document.getElementById('CardNumber');
 
+        // "-" karakteri olmadan sadece sayıları girilebilir hale getir
         creditCardInput.addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            let formattedValue = '';
-            for (let i = 0; i < value.length; i++) {
-                if (i > 0 && i % 4 === 0) {
-                    formattedValue += '-';
-                }
-                formattedValue += value[i];
-            }
-            e.target.value = formattedValue;
+            e.target.value = e.target.value.replace(/\D/g, '');
         });
 
         document.querySelector('.card-number-input').oninput = () =>{
@@ -144,5 +144,6 @@
             document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
         }
     </script>
+
 </body>
 </html>

@@ -39,7 +39,7 @@
                                             <th>@count</th>
                                             <td>@item.TotalPrice</td>
                                             <td>@(((DateTime)item.OrderDate).ToString("dd-MMM-yyyy"))</td>
-                                            <td><a href="#" class="btn btn-primary">Sipariş Detayları</a></td>
+                                            <td><a href="/User/MyOrder/MyOrderDetail/@item.OrderingId" class="btn btn-primary">Sipariş Detayları</a></td>
                                         </tr>
                                     }
                                 </tbody>

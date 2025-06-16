@@ -19,10 +19,11 @@ namespace MultiShop.Order.Persistence.Repositories
             _context = context;
         }
 
-        public async Task CreateAsync(T entity)
+        public async Task<T> CreateAsync(T entity)
         {
             _context.Set<T>().Add(entity);
             await _context.SaveChangesAsync();
+            return entity;
         }
 
         public async Task DeleteAsync(T entity)

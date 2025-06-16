@@ -16,7 +16,6 @@ namespace MultiShop.Basket.Services
         public async Task DeleteBasket(string userId)
         {
             await _redisService.GetDb().KeyDeleteAsync(userId);
-
         }
 
         public async Task<BasketTotalDto> GetBasket(string userId)

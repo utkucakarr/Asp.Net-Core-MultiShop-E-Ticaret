@@ -4,10 +4,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 @await Component.InvokeAsync("_AdminLayoutHeadComponentPartial")
 
-<body class="sidebar-mini">
+<body class="sidebar-mini custom-minheight-page">
     <div class="wrapper">
 
         <!-- Main Header -->
@@ -39,5 +38,12 @@
     <script src="~/MainDownload-OvioAdmin-html5-template/html/dist/js/jquery.min.js"></script>
     <script src="~/MainDownload-OvioAdmin-html5-template/html/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/MainDownload-OvioAdmin-html5-template/html/dist/js/ovio.js"></script>
+
+    <style>
+        body.custom-minheight-page .content-wrapper {
+            min-height: 900px !important;
+            height: auto !important;
+        }
+    </style>
 </body>
 </html>

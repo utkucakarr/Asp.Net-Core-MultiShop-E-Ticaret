@@ -17,14 +17,16 @@ namespace MultiShop.Order.WebApi.Controllers
         private readonly CreateOrderDetailCommandHandler _createOrderDetailCommandHandler;
         private readonly UpdateOrderDetailQueryHandler _updateOrderDetailQueryHandler;
         private readonly RemoveOrderDetailQueryHandler _removeOrderDetailQueryHandler;
+        private readonly GetOrderDetailByOrderingIdQueryHandler _getOrderDetailByOrderingIdQueryHandler;
 
-        public OrderDetailsController(GetOrderDetailQueryHandler getOrderDetailQueryHandler, GetOrderDetailByIdQueryHandler getOrderDetailByIdQueryHandler, CreateOrderDetailCommandHandler createOrderDetailCommandHandler, UpdateOrderDetailQueryHandler updateOrderDetailQueryHandler, RemoveOrderDetailQueryHandler removeOrderDetailQueryHandler)
+        public OrderDetailsController(GetOrderDetailQueryHandler getOrderDetailQueryHandler, GetOrderDetailByIdQueryHandler getOrderDetailByIdQueryHandler, CreateOrderDetailCommandHandler createOrderDetailCommandHandler, UpdateOrderDetailQueryHandler updateOrderDetailQueryHandler, RemoveOrderDetailQueryHandler removeOrderDetailQueryHandler, GetOrderDetailByOrderingIdQueryHandler getOrderDetailByOrderingIdQueryHandler)
         {
             _getOrderDetailQueryHandler = getOrderDetailQueryHandler;
             _getOrderDetailByIdQueryHandler = getOrderDetailByIdQueryHandler;
             _createOrderDetailCommandHandler = createOrderDetailCommandHandler;
             _updateOrderDetailQueryHandler = updateOrderDetailQueryHandler;
             _removeOrderDetailQueryHandler = removeOrderDetailQueryHandler;
+            _getOrderDetailByOrderingIdQueryHandler = getOrderDetailByOrderingIdQueryHandler;
         }
 
         [HttpGet]
@@ -40,6 +42,13 @@ namespace MultiShop.Order.WebApi.Controllers
             var value = await _getOrderDetailByIdQueryHandler.Handle(new GetOrderDetailByQuery(id));
             return Ok(value);
         }
+
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> GetOrderDetailByOrderingId(int id)
+        //{
+        //    var value = await _getOrderDetailByOrderingIdQueryHandler.Handle(new GetOrderDetailByOrderingIdQuery(id));
+        //    return Ok(value);
+        //}
 
         [HttpPost]
         public async Task<IActionResult> CreateOrderDetail(CreateOrderDetailCommand command)
