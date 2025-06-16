@@ -13,10 +13,11 @@ namespace MultiShop.WebUI.Areas.User.Controllers
         private readonly IUserService _userService;
         private readonly IOrderDetailService _orderDetailService;
 
-        public MyOrderController(IOrderOrderingService orderOrderingService, IUserService userService)
+        public MyOrderController(IOrderOrderingService orderOrderingService, IUserService userService, IOrderDetailService orderDetailService)
         {
             _orderOrderingService = orderOrderingService;
             _userService = userService;
+            _orderDetailService = orderDetailService;
         }
 
         public async Task<IActionResult> MyOrderList()
@@ -26,10 +27,12 @@ namespace MultiShop.WebUI.Areas.User.Controllers
             return View(values);
         }
 
-        public async Task<IActionResult> MyOrderDetail()
+        [Route("User/MyOrder/MyOrderDetail/{orderingId}")]
+        public async Task<IActionResult> MyOrderDetail(int orderingId)
         {
             var user = await _userService.GetUserInfo();
-            return View();
+            var orderDetails = await _orderDetailService.GetOrderDetailByOrderingId(orderingId);
+            return View(orderDetails);
         }
     }
 }

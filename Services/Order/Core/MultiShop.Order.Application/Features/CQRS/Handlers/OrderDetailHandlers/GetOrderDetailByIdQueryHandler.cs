@@ -19,19 +19,24 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers
             _repository = repository;
         }
 
-        public async Task<GetOrderDetailByIdQueryResult> Handle(GetOrderDetailByQuery query)
+        public async Task<List<GetOrderDetailByIdQueryResult>> Handle(GetOrderDetailByQuery query)
         {
-            var values = await _repository.GetByIdAsync(query.Id);
-            return new GetOrderDetailByIdQueryResult
+            var orderDetails = new List<GetOrderDetailByIdQueryResult>();
+            var values = await _repository.GetListByFilterAsync(x => x.OrderingId == query.Id);
+            foreach (var value in values)
             {
-                OrderDetailId = values.OrderDetailId,
-                ProductAmount = values.ProductAmount,
-                ProductId = values.ProductId,
-                ProductName = values.ProductName,
-                OrderingId = values.OrderingId,
-                ProductPrice = values.ProductPrice,
-                ProductTotalPrice = values.ProductTotalPrice,
-            };
+                orderDetails.Add(new GetOrderDetailByIdQueryResult
+                {
+                    OrderDetailId = value.OrderDetailId,
+                    ProductAmount = value.ProductAmount,
+                    ProductId = value.ProductId,
+                    ProductName = value.ProductName,
+                    OrderingId = value.OrderingId,
+                    ProductPrice = value.ProductPrice,
+                    ProductTotalPrice = value.ProductTotalPrice,
+                });
+            }
+            return orderDetails;
         }
     }
 }
