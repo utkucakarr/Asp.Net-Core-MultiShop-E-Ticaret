@@ -77,12 +77,13 @@ namespace MultiShop.WebUI.Controllers
             if (response.IsSuccess == true)
             {
                 await _basketService.DeleteBasket(user.Id);
-                return RedirectToAction("Index", "Default");
+                //return RedirectToAction("Index", "Default");
+                return RedirectToAction("MyOrderList", "MyOrder", new { area = "User" });
             }
 
             else
             {
-                return RedirectToAction("Index", "Payment", new {errorMessage = response.ErrorMessage});
+                return RedirectToAction("Index", "Payment", new { errorMessage = response.ErrorMessage });
             }
 
         }

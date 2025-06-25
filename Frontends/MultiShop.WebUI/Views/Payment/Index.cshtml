@@ -109,7 +109,6 @@
     <script>
         const creditCardInput = document.getElementById('CardNumber');
 
-        // "-" karakteri olmadan sadece sayıları girilebilir hale getir
         creditCardInput.addEventListener('input', function (e) {
             e.target.value = e.target.value.replace(/\D/g, '');
         });

@@ -24,7 +24,8 @@ namespace MultiShop.WebUI.Areas.User.Controllers
         {
             var user = await _userService.GetUserInfo();
             var values = await _orderOrderingService.GetOrderingByUserId(user.Id);
-            return View(values);
+            var orderedValues = values.OrderByDescending(x => x.OrderDate).ToList();
+            return View(orderedValues);
         }
 
         [Route("User/MyOrder/MyOrderDetail/{orderingId}")]

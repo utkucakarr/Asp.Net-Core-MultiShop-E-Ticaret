@@ -40,7 +40,7 @@ namespace MultiShop.WebUI.Services.BasketServices
             var values = await GetBasket();
             if (values != null)
             {
-                if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId))
+                if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId)) // uyan değer var mı diye bakıyor.
                 {
                     values.BasketItems.Add(basketItemDto);
                 }

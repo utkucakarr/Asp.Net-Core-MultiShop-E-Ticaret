@@ -20,6 +20,7 @@ namespace MultiShop.Payment.Services.PaymentServices
         {
             var orderId = "MLT-SHP-" + createPaymentDto.OrderingId.ToString(); //Guid.NewGuid().ToString("N");
             var paymentAmounth = ulong.Parse(createPaymentDto.PaymentAmounth) * 100;
+            //Güvenlik için hash oluşturuuyor. 949 Para kodu, 123qweASK/ şifre ve 30691297'de Terminal Id
             var hashData = GetHashData("123qweASD/", "30691297", orderId, createPaymentDto.CardNumber, paymentAmounth, 949);
             var xmlData = $"<?xml version='1.0' encoding='iso-8859-9'?>\n" +
                       $"<GVPSRequest>\n" +
@@ -62,7 +63,7 @@ namespace MultiShop.Payment.Services.PaymentServices
 
             string responseString = await response.Content.ReadAsStringAsync();
 
-            var xml = XDocument.Parse(responseString);
+            var xml = XDocument.Parse(responseString); // Gelen xml'e dönüştürüyor.
             var code = xml.Descendants("Code").FirstOrDefault()?.Value;
             var reasonCode = xml.Descendants("ReasonCode").FirstOrDefault()?.Value;
             var message = xml.Descendants("Message").FirstOrDefault()?.Value;
@@ -89,23 +90,26 @@ namespace MultiShop.Payment.Services.PaymentServices
 
             return paymentResponse;
         }
+
+        //Eski sistemlerde kullanıyor daha az güvenli açık var
         public static string Sha1(string text)
         {
-            var provider = CodePagesEncodingProvider.Instance;
-            Encoding.RegisterProvider(provider);
+            var provider = CodePagesEncodingProvider.Instance; // Iso "ISO-8859-9" kodunu getiriyor
+            Encoding.RegisterProvider(provider); //Türkçe karaktere çevirmek için iso kodunu
 
-            var cryptoServiceProvider = new SHA1CryptoServiceProvider();
-            var inputbytes = cryptoServiceProvider.ComputeHash(Encoding.GetEncoding("ISO-8859-9").GetBytes(text));
+            var cryptoServiceProvider = new SHA1CryptoServiceProvider(); //cryptoservice'e sha1 şifreleme işlemini uyguluyoruz.
+            var inputbytes = cryptoServiceProvider.ComputeHash(Encoding.GetEncoding("ISO-8859-9").GetBytes(text)); // hash ile şifreliyoruz.
 
             var builder = new StringBuilder();
             for (int i = 0; i < inputbytes.Length; i++)
             {
-                builder.Append(string.Format("{0,2:x}", inputbytes[i]).Replace(" ", "0"));
+                builder.Append(string.Format("{0,2:x}", inputbytes[i]).Replace(" ", "0")); //Bu satırda her bir byte hexadecimal (onaltılık) forma çevrilir, tek basamaklı olanlara başına 0 konur.
             }
 
-            return builder.ToString().ToUpper();
+            return builder.ToString().ToUpper(); //Sonuç olarak elde edilen değer büyük harflerle döndürülür:
         }
 
+        //Yeni sistemlerde kullanılıyor
         public static string Sha512(string text)
         {
             var provider = CodePagesEncodingProvider.Instance;
@@ -128,6 +132,5 @@ namespace MultiShop.Payment.Services.PaymentServices
             var hashedPassword = Sha1(userPassword + "0" + terminalId);
             return Sha512(orderId + terminalId + cardNumber + amount + currencyCode + hashedPassword).ToUpper();
         }
-
     }
 }
