@@ -55,5 +55,6 @@ Bu proje, mikro hizmetler mimarisi kullanılarak geliştirilmiştir ve **ASP.NET
 -	SignalR
 -	RapidApi
 ## Görseller
-[](https://github.com/user-attachments/assets/88669e7a-61e8-499b-9258-645cc2e0d4aa)
+
+![LoginPage](https://github.com/user-attachments/assets/92107a10-717f-4186-b541-8d557d82324c)
 
