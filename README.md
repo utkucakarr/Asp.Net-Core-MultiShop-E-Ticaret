@@ -54,10 +54,9 @@ Bu proje, mikro hizmetler mimarisi kullanılarak geliştirilmiştir ve **ASP.NET
 -	RabbitMq
 -	SignalR
 -	RapidApi
-Görseller
-![RegisterPage](https://github.com/user-attachments/assets/b658d9df-2e52-4ba5-a1b5-61d7a6f93476)
-![Anasayfa](https://github.com/user-at![BasketPage](https://github.com/user-attachments/assets/ca51e961-959b-4589-a94c-5e96425589b7)
-tachments/assets/400755d8-7794-4b2c-9293-d6d7c![Payment](https://github.com/user-attachments/assets/07d8b5e1-b7f0-4ed0-b918-03956bd9a742)
-822ac1a)![Kategori](https://github.com/user-attachments/assets/18e7f578-60da-472f-85ba-845880451f92)
-![SliderPanel](https://github.co![UserPanel](https://github.com/user-attachments/assets/6809ce3e-90d0-4692-b8ec-113f3a3e0440)
-m/user-attachments/assets/4c4f80a5-2500-4e83-9117-8f3a4a1306c3)
+## Görseller
+(https://github.com/user-attachments/assets/b658d9df-2e52-4ba5-a1b5-61d7a6f93476)
+(https://github.com/user-attachments/assets/ca51e961-959b-4589-a94c-5e96425589b7)
+(https://github.com/user-attachments/assets/07d8b5e1-b7f0-4ed0-b918-03956bd9a742)
+(https://github.com/user-attachments/assets/18e7f578-60da-472f-85ba-845880451f92)
+(https://github.com/user-attachments/assets/6809ce3e-90d0-4692-b8ec-113f3a3e0440)
