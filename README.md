@@ -21,6 +21,7 @@ Bu proje, mikro hizmetler mimarisi kullanılarak geliştirilmiştir ve **ASP.NET
 - EF Core
 - Dapper
 - Docker
+- Garanti Sanal Post Hizmeti
 
 ## Frontend Teknolojileri
 - HTML
