@@ -58,4 +58,7 @@ Bu proje, mikro hizmetler mimarisi kullanılarak geliştirilmiştir ve **ASP.NET
 
 ![LoginPage](https://github.com/user-attachments/assets/92107a10-717f-4186-b541-8d557d82324c)
 ![Anasayfa](https://github.com/user-attachments/assets/4a8034cb-eb9a-469b-b6cd-439599caad59)
-
+![BasketPage](https://github.com/user-attachments/assets/c9880ff5-e873-4b37-8827-03335c32addc)
+![Payment](https://github.com/user-attachments/assets/98b2a7cd-d3e1-44e9-af64-fd231cadeb56)
+![Kategori](https://github.com/user-attachments/assets/a8e834e6-05b0-45c1-a23a-2cfd8e20a6a9)
+![UserPanel](https://github.com/user-attachments/assets/cbd6dc7e-c119-470b-9901-0c1f55d817b6)
