@@ -57,4 +57,5 @@ Bu proje, mikro hizmetler mimarisi kullanılarak geliştirilmiştir ve **ASP.NET
 ## Görseller
 
 ![LoginPage](https://github.com/user-attachments/assets/92107a10-717f-4186-b541-8d557d82324c)
+![Anasayfa](https://github.com/user-attachments/assets/4a8034cb-eb9a-469b-b6cd-439599caad59)
 
