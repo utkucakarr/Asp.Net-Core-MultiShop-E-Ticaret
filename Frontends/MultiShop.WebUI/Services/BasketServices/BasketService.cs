@@ -78,9 +78,11 @@ namespace MultiShop.WebUI.Services.BasketServices
         {
             var currentBasket = await GetBasket();
             var deletedItem = currentBasket.BasketItems.FirstOrDefault(x => x.ProductId == productId);
-            deletedItem.Quantity--;
-
-            await SaveBasket(currentBasket);
+            if (deletedItem != null && deletedItem.Quantity > 1)
+            {
+                deletedItem.Quantity--;
+                await SaveBasket(currentBasket);
+            }
         }
 
         public async Task SaveBasket(BasketTotalDto basketTotalDto)

@@ -28,6 +28,7 @@ namespace MultiShop.WebUI.Controllers
             _orderOrderingService = orderOrderingService;
         }
 
+        [HttpGet]
         public IActionResult Index(string errorMessage)
         {
             ViewBag.errorMessage = errorMessage;

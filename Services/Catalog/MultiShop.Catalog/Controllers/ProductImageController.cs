@@ -6,7 +6,8 @@ using MultiShop.Catalog.Services.ProductImageServices;
 
 namespace MultiShop.Catalog.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductImageController : ControllerBase

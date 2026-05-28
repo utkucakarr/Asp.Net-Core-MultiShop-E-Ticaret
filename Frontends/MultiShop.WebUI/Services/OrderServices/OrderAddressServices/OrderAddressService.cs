@@ -11,9 +11,20 @@ namespace MultiShop.WebUI.Services.OrderServices.OrderAddressServices
             _httpClient = httpClient;
         }
 
-        public async Task CreateOrderAddressAsync(CreateOrderAddressDto createOrderAddressDto)
+        public async Task<string> CreateOrderAddressAsync(CreateOrderAddressDto createOrderAddressDto)
         {
-            await _httpClient.PostAsJsonAsync<CreateOrderAddressDto>("addresses", createOrderAddressDto);
+            var responseMessage = await _httpClient.PostAsJsonAsync<CreateOrderAddressDto>("addresses", createOrderAddressDto);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                return jsonData;
+            }
+            else
+            {
+                var error = await responseMessage.Content.ReadAsStringAsync();
+                // Burada loglama veya özel hata mesajı oluşturabilirsin
+                return $"Hata oluştu: {responseMessage.StatusCode} - {error}";
+            }
         }
     }
 }
