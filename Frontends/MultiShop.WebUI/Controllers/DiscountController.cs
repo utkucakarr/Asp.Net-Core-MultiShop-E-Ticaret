@@ -1,4 +1,5 @@
 ﻿using AspNetCoreGeneratedDocument;
+using Duende.IdentityServer.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.BasketDtos;
 using MultiShop.DtoLayer.OrderDtos.OrderAddressDtos;
@@ -39,13 +40,21 @@ namespace MultiShop.WebUI.Controllers
         public async Task<IActionResult> ConfirmDiscountCoupon(string code)
         {
             var values = await _discountService.GetDiscountCouponCountRate(code);
+            if (values != 0)
+            {
+                var basketValues = await _basketService.GetBasket();
+                var totalPriceWithTax = basketValues.TotalPrice + (basketValues.TotalPrice * 10 / 100);
 
-            var basketValues = await _basketService.GetBasket();
-            var totalPriceWithTax = basketValues.TotalPrice + (basketValues.TotalPrice * 10 / 100);
+                var totalNewPriceWithDiscount = totalPriceWithTax - (totalPriceWithTax * values / 100);
 
-            var totalNewPriceWithDiscount = totalPriceWithTax - (totalPriceWithTax * values / 100);
+                return RedirectToAction("Index", "ShoppingCard", new { code = code, discountRate = values, totalNewPriceWithDiscount = totalNewPriceWithDiscount });
+            }
 
-            return RedirectToAction("Index", "ShoppingCard", new { code = code, discountRate = values, totalNewPriceWithDiscount = totalNewPriceWithDiscount });
+            else
+            {
+                TempData["ErrorMessage"] = "Hatalı kupon kodu girdiniz";
+                return RedirectToAction("Index", "ShoppingCard");
+            }
         }
 
         [HttpPost]

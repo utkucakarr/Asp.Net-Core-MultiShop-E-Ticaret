@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.EntityFrameworkCore;
 using MultiShop.Cargo.BusinessLayer.Abstract;
 using MultiShop.Cargo.BusinessLayer.Concrete;
 using MultiShop.Cargo.DataAccessLayer.Abstract;
@@ -15,7 +17,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     opt.RequireHttpsMetadata = false;
 });
 
-builder.Services.AddDbContext<CargoContext>();
+builder.Services.AddDbContext<CargoContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddScoped<ICargoCompanyDal, EfCargoCompanyDal>();
 builder.Services.AddScoped<ICargoCompanyService, CargoCompanyManager>();
 builder.Services.AddScoped<ICargoCustomerDal, EfCargoCustomerDal>();

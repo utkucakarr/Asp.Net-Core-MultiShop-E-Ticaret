@@ -7,7 +7,8 @@ using System.Security.Cryptography;
 
 namespace MultiShop.Catalog.Controllers
 {
-    [Authorize]
+    //[Authorize]
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class SpecialOffersController : ControllerBase

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Order.Application.Features.CQRS.Commands.OrderDetailCommands;
 using MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers;
@@ -36,7 +35,7 @@ namespace MultiShop.Order.WebApi.Controllers
             return Ok(values);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetOrderDetailById")]
         public async Task<IActionResult> GetOrderDetailById(int id)
         {
             var value = await _getOrderDetailByIdQueryHandler.Handle(new GetOrderDetailByQuery(id));

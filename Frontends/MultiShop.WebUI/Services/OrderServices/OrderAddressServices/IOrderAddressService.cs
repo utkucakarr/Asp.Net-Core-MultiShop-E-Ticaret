@@ -4,6 +4,6 @@ namespace MultiShop.WebUI.Services.OrderServices.OrderAddressServices
 {
     public interface IOrderAddressService
     {
-        Task CreateOrderAddressAsync(CreateOrderAddressDto createOrderAddressDto);
+        Task<string> CreateOrderAddressAsync(CreateOrderAddressDto createOrderAddressDto);
     }
 }

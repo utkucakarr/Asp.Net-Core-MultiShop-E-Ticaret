@@ -3,7 +3,12 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/UILayout/_UILayout.cshtml";
 }
-
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert" style="height:50px">
+        @TempData["ErrorMessage"]
+    </div>
+}
 <div class="container-fluid">
     <div class="row px-xl-5">
 

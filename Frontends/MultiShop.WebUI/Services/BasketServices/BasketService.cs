@@ -40,7 +40,7 @@ namespace MultiShop.WebUI.Services.BasketServices
             var values = await GetBasket();
             if (values != null)
             {
-                if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId))
+                if (!values.BasketItems.Any(x => x.ProductId == basketItemDto.ProductId)) // uyan değer var mı diye bakıyor.
                 {
                     values.BasketItems.Add(basketItemDto);
                 }
@@ -78,9 +78,11 @@ namespace MultiShop.WebUI.Services.BasketServices
         {
             var currentBasket = await GetBasket();
             var deletedItem = currentBasket.BasketItems.FirstOrDefault(x => x.ProductId == productId);
-            deletedItem.Quantity--;
-
-            await SaveBasket(currentBasket);
+            if (deletedItem != null && deletedItem.Quantity > 1)
+            {
+                deletedItem.Quantity--;
+                await SaveBasket(currentBasket);
+            }
         }
 
         public async Task SaveBasket(BasketTotalDto basketTotalDto)

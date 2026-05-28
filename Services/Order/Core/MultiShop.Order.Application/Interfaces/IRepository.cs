@@ -22,5 +22,7 @@ namespace MultiShop.Order.Application.Interfaces
 
         //Burada bir giriş ve bir çıkış değeri istiyor. Örnek olarak giriş değerinde ankara var ise bool değer true dönücek değil ise false dönücek.
         Task<T> GetByFilterAsync(Expression<Func<T, bool>> filter);
+
+        Task<List<T>> GetListByFilterAsync(Expression<Func<T, bool>> filter);
     }
 }
