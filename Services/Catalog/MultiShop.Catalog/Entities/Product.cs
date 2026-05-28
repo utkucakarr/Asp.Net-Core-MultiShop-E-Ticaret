@@ -67,6 +67,23 @@ namespace MultiShop.Catalog.Entities
             return removed;
         }
 
+        public int AddStock(int quantity)
+        {
+            int original = this.AvailableStock;
+
+            if((this.AvailableStock + quantity) > this.MaxStockThreshold)
+            {
+                this.AvailableStock += (this.MaxStockThreshold - this.AvailableStock);
+            }
+            else
+            {
+                this.AvailableStock += quantity;
+            }
+
+            this.OnReorder = false;
+            return this.AvailableStock - original;
+        }
+
         public void UpdateProductDetails(string? description, string? imageUrl)
         {
             // İleride buraya kural ekleyebilirsin: 
