@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using MultiShop.Catalog.Dtos.ProductDtos;
 using MultiShop.Catalog.Entities;
+using MultiShop.Catalog.Extensions;
 using MultiShop.Catalog.Settings;
 
 namespace MultiShop.Catalog.Services.ProductServices
@@ -21,11 +22,11 @@ namespace MultiShop.Catalog.Services.ProductServices
             _mapper = mapper;
         }
 
-        public async Task CreateProductAsync(CreateProductDto createProductDto)
-        {
-            var values = _mapper.Map<Product>(createProductDto);
-            await _productCollection.InsertOneAsync(values);
-        }
+            public async Task CreateProductAsync(CreateProductDto createProductDto)
+            {
+                var newProduct = createProductDto.ToEntity();
+                await _productCollection.InsertOneAsync(newProduct);
+            }
 
         public async Task DeleteProductAsync(string id)
         {
