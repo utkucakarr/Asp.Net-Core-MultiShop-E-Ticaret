@@ -22,11 +22,11 @@ namespace MultiShop.Catalog.Services.ProductServices
             _mapper = mapper;
         }
 
-            public async Task CreateProductAsync(CreateProductDto createProductDto)
-            {
-                var newProduct = createProductDto.ToEntity();
-                await _productCollection.InsertOneAsync(newProduct);
-            }
+        public async Task CreateProductAsync(CreateProductDto createProductDto)
+        {
+            var newProduct = createProductDto.ToEntity();
+            await _productCollection.InsertOneAsync(newProduct);
+        }
 
         public async Task DeleteProductAsync(string id)
         {
